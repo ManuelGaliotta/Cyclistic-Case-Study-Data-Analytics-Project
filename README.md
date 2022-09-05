@@ -21,16 +21,18 @@ Le analisi permettono di aiutare a elaborare strategie di marketing efficaci vol
 
 In qualità di **Junior Data Analyst** nel team di analisi di marketing di Cyclistic, ho avuto il compito di presentare ai dirigenti i miei risultati e le mie raccomandazioni dopo aver esplorato, elaborato e analizzato a fondo tutti i dati rilevanti.
 
-A tal proposito ho cercato di rispondere ad una semplice domanda 
-**“In che modo i membri annuali e i ciclisti occasionali utilizzano le biciclette Cyclistic in modo diverso? “**
+A tal proposito ho cercato di rispondere ad una semplice domanda “ In che modo i membri annuali e i ciclisti occasionali utilizzano le biciclette Cyclistic in modo diverso? “
 
-#### Obiettivo 
-Pulire, analizzare e visualizzare i dati per osservare come i ciclisti occasionali utilizzano le biciclette a noleggio in modo diverso dai ciclisti membri annuali.
+Obbiettivo: Pulire, analizzare e visualizzare i dati per osservare come i ciclisti occasionali utilizzano le biciclette a noleggio in modo diverso dai ciclisti membri annuali.
 
 Per questo progetto vista la mole di dati ho deciso di utilizzare sia R quanto concerne la pulizia e l’analisi, per affiancare successivamente Tableau delle rappresentazioni grafiche più dettagliate con la creazione di una Dashboard con possibilità successiva di sviluppo ed implementazione di processi di automazione per Analisi Live.
 
 ## Data
+È importante conoscere la provenienza dei nostri dati e capire la veridicità e l’affidabilità di essi, al fine di ottenere un analisi più imparziale possibile senza criticità dovuti ad un inconsistenza dei dati o ad altri problemi o BIAS legati ad essi.
 
+Fonte dei dati: **[Dati pubblici di Motivate International](https://divvy-tripdata.s3.amazonaws.com/index.html)** Inc. (Divvy Bicycle Sharing Service di Chicago) ai sensi della presente [licenza](https://www.divvybikes.com/data-license-agreement) .
+
+Data Frame: I dati colpiscono una fascia temporale cha va dal 2013 in poi e sono disponibili in formato `.csv`
 
 ## Elaborazione e Pulizia
 
