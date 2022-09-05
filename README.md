@@ -1,2 +1,9 @@
-# Cyclistic-Case-Study-Data-Analytics-Project
-Il progetto fa parte del Corso di certificazione di Google Data Analytics. Lo scenario prevede l'analisi dei dati di viaggio della società di Bike Sharing Cyclistic.
+## Sommario
+1. [Introduzione](README.md#introduction)
+2. [Business Task](README.md#business-task)
+3. [Data](README.md#data)
+4. [Processing and Cleaning](README.md#processing-and-cleaning)
+5. [Analysis and Viz](README.md#analysis-and-viz)
+6. [Conclusion and Recommendations](README.md#conclusions)
+
+## Intorduzione
