@@ -20,9 +20,10 @@ Massimizzare il numero di membri annuali sarà la chiave per la crescita futura 
 
 In qualità di **Junior Data Analyst** nel team di analisi di marketing di Cyclistic, ho avuto il compito di presentare ai dirigenti i miei risultati e le mie raccomandazioni dopo aver esplorato, elaborato e analizzato a fondo tutti i dati rilevanti.
 
-A tal proposito ho cercato di rispondere ad una semplice domanda **In che modo i membri annuali e i ciclisti occasionali utilizzano le biciclette Cyclistic in modo diverso?**
+A tal proposito ho cercato di rispondere ad una semplice domanda:
+**"In che modo i membri annuali e i ciclisti occasionali utilizzano le biciclette Cyclistic in modo diverso?"**
 
-# Obiettivo 
+### Obiettivo 
 Pulire, analizzare e visualizzare i dati per osservare come i ciclisti occasionali utilizzano le biciclette a noleggio in modo diverso dai ciclisti membri annuali.
 
 Per questo progetto vista la mole di dati ho deciso di utilizzare sia R quanto concerne la pulizia e l’analisi, per affiancare successivamente Tableau delle rappresentazioni grafiche più dettagliate con la creazione di una Dashboard con possibilità successiva di sviluppo ed implementazione di processi di automazione per Analisi Live.
