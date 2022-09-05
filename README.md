@@ -21,6 +21,7 @@ Massimizzare il numero di membri annuali sarà la chiave per la crescita futura 
 In qualità di **Junior Data Analyst** nel team di analisi di marketing di Cyclistic, ho avuto il compito di presentare ai dirigenti i miei risultati e le mie raccomandazioni dopo aver esplorato, elaborato e analizzato a fondo tutti i dati rilevanti.
 
 A tal proposito ho cercato di rispondere ad una semplice domanda:
+
 **"In che modo i membri annuali e i ciclisti occasionali utilizzano le biciclette Cyclistic in modo diverso?"**
 
 ### Obiettivo 
