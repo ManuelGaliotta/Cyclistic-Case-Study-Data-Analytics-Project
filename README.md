@@ -30,7 +30,7 @@ Per questo progetto vista la mole di dati ho deciso di utilizzare sia R quanto c
 ## Data
 È importante conoscere la provenienza dei nostri dati e capire la veridicità e l’affidabilità di essi, al fine di ottenere un analisi più imparziale possibile senza criticità dovuti ad un inconsistenza dei dati o ad altri problemi o BIAS legati ad essi.
 
-Fonte dei dati: [Dati pubblici di Motivate International](https://divvy-tripdata.s3.amazonaws.com/index.html) Inc. (Divvy Bicycle Sharing Service di Chicago) ai sensi della presente [licenza](https://www.divvybikes.com/data-license-agreement) .
+Fonte dei dati: [Dati pubblici di Motivate International Inc.](https://divvy-tripdata.s3.amazonaws.com/index.html) (Divvy Bicycle Sharing Service di Chicago) ai sensi della presente [licenza](https://www.divvybikes.com/data-license-agreement) .
 
 Data Frame: I dati colpiscono una fascia temporale cha va dal 2013 in poi e sono disponibili in formato `.csv`
 
