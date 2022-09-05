@@ -35,7 +35,14 @@ Fonte dei dati: [Dati pubblici di Motivate International Inc.](https://divvy-tri
 Data Frame: I dati colpiscono una fascia temporale cha va dal 2013 in poi e sono disponibili in formato `.csv`
 
 ## Elaborazione e Pulizia
-
+* Dati scaricati per la manipolazione e l'analisi tramite R.
+* Manipolazione dei dati per renderli coerenti tra di loro e quindi consolidarli in un unico data frame.
+* Verifica presenza di duplicati
+* Ricerca ed eliminazione dei rows nulli o inconsistenti 
+Per facilitare l'analisi, sono state 
+* Separate le date per ogni singolo viaggio, creando delle colonne (data,year,month,day,day_of_week)
+* Aggiunta colonna ride_length per avere la durata di ogni singolo viaggio.
+* Rimoviamo dei dati cha hanno una durata inferiore e uguale 0 secondi.
 
 ## Analisi
 
