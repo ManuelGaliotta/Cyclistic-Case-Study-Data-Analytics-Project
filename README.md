@@ -14,14 +14,14 @@ L'azienda opera a Chicago con circa 6000 biciclette in 700 stazioni.
 L'azienda dispone di due modelli per l’utilizzo del servizio: corsa singola chiamata "**casual**" e abbonamenti annuali chiamati "**member**". 
 
 Il team esecutivo è alla ricerca di modi per migliorare la crescita e sta valutando una strategia di marketing.
-Massimizzare il numero di membri annuali sarà la chiave per la crescita futura in quanto garantisce la sostenibilità finanziaria e la fidelizzazione dei clienti. Le analisi permettono di aiutare a elaborare strategie di marketing efficaci volte a convertire i ciclisti occasionali in membri abbonati.
+Massimizzare il numero di membri annuali sarà la chiave per la crescita futura in quanto garantisce la sostenibilità finanziaria e la fidelizzazione dei clienti.
+Le analisi permettono di aiutare a elaborare strategie di marketing efficaci volte a convertire i ciclisti occasionali in membri abbonati.
 
 ## Business Task
 
 In qualità di **Junior Data Analyst** nel team di analisi di marketing di Cyclistic, ho avuto il compito di presentare ai dirigenti i miei risultati e le mie raccomandazioni dopo aver esplorato, elaborato e analizzato a fondo tutti i dati rilevanti.
 
 A tal proposito ho cercato di rispondere ad una semplice domanda:
-
 **"In che modo i membri annuali e i ciclisti occasionali utilizzano le biciclette Cyclistic in modo diverso?"**
 
 ### Obiettivo 
