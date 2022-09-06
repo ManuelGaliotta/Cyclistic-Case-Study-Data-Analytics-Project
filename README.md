@@ -24,9 +24,9 @@ In qualità di **Junior Data Analyst** nel team di analisi di marketing di Cycli
 
 A tal proposito ho cercato di rispondere ad una semplice domanda “ In che modo i membri annuali e i ciclisti occasionali utilizzano le biciclette Cyclistic in modo diverso? “
 
-* **Obbiettivo**: Pulire, analizzare e visualizzare i dati per osservare come i ciclisti occasionali utilizzano le biciclette a noleggio in modo diverso dai ciclisti membri annuali.
+* **Obbiettivo**: Pulire, analizzare e visualizzare i dati per osservare come i ciclisti occasionali utilizzano le biciclette a noleggio in modo diverso dai membri annuali.
 
-Per questo progetto vista la mole di dati ho deciso di utilizzare sia R quanto concerne la pulizia e l’analisi, per affiancare successivamente Tableau delle rappresentazioni grafiche più dettagliate con la creazione di una Dashboard con possibilità successiva di sviluppo ed implementazione di processi di automazione per Analisi Live.
+> Per questo progetto vista la mole di dati ho deciso di utilizzare R per quanto concerne la pulizia e l’analisi ed affiancare successivamente Tableau per  rappresentazioni grafiche più dettagliate con la creazione di una Dashboard con possibilità successiva di sviluppo ed implementazione di processi di automazione per Analisi Live.
 
 ## Data
 È importante conoscere la provenienza dei nostri dati e capire la veridicità e l’affidabilità di essi, al fine di ottenere un analisi più imparziale possibile senza criticità dovuti ad un inconsistenza dei dati o ad altri problemi o BIAS legati ad essi.
