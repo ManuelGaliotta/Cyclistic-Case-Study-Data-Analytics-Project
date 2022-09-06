@@ -26,16 +26,18 @@ A tal proposito ho cercato di rispondere ad una semplice domanda “ In che modo
 
 * **Obbiettivo**: Pulire, analizzare e visualizzare i dati per osservare come i ciclisti occasionali utilizzano le biciclette a noleggio in modo diverso dai membri annuali.
 
-> Per questo progetto vista la mole di dati ho deciso di utilizzare R per quanto concerne la pulizia e l’analisi ed affiancare successivamente Tableau per  rappresentazioni grafiche più dettagliate con la creazione di una Dashboard con possibilità successiva di sviluppo ed implementazione di processi di automazione per Analisi Live.
+> Per questo progetto vista la mole di dati, ho deciso di utilizzare R per quanto concerne la pulizia e l’analisi, ed affiancare successivamente Tableau per  rappresentazioni grafiche più dettagliate con la creazione di una Dashboard con possibilità successiva di sviluppo ed implementazione di processi di automazione per Analisi Live.
 
 ## Data
+
 È importante conoscere la provenienza dei nostri dati e capire la veridicità e l’affidabilità di essi, al fine di ottenere un analisi più imparziale possibile senza criticità dovuti ad un inconsistenza dei dati o ad altri problemi o BIAS legati ad essi.
 
 Fonte dei dati: [Dati pubblici di Motivate International Inc.](https://divvy-tripdata.s3.amazonaws.com/index.html) (Divvy Bicycle Sharing Service di Chicago) ai sensi della presente [licenza](https://www.divvybikes.com/data-license-agreement) .
 
-Data Frame: I dati colpiscono una fascia temporale cha va dal 2013 in poi e sono disponibili in formato `.csv`
+Data Frame: I dati colpiscono una fascia temporale cha va dal 2013 in poi e sono disponibili in formato `.csv` 
 
 ## Elaborazione e Pulizia
+
 * Dati scaricati per la manipolazione e l'analisi tramite R.
 * Manipolazione dei dati per renderli coerenti tra di loro e quindi consolidarli in un unico data frame.
 * Verifica presenza di duplicati
