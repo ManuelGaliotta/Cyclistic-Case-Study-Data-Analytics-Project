@@ -1,10 +1,9 @@
-## Data Sources
+## Le mie ipotesi
 
-È importante conoscere la provenienza dei nostri dati e capire la veridicità e l’affidabilità di essi, al fine di ottenere un analisi più imparziale possibile senza criticità dovuti ad un inconsistenza dei dati o ad altri problemi o BIAS legati ad essi.
+* A causa di problemi di privacy dei dati, i dati pubblici utilizzati per questo progetto non contengono informazioni di identificazione personale dei motociclisti, quindi dobbiamo fare molte ipotesi su record di viaggio individuali, tempo di viaggio e tipo di utente (casual o membro)
+* La maggior parte degli utenti è locale nell'area di Chicago e utilizza il servizio abbastanza regolarmente
+* I membri annuali utilizzano il servizio per il pendolarismo al lavoro
+* I motociclisti occasionali utilizzano il servizio per scopi ricreativi
+* Gli abbonamenti per una corsa singola e per l'intera giornata sono generalmente più economici di un abbonamento annuale, ma esiste una certa frequenza di utilizzo in cui l'abbonamento annuale è l'offerta migliore per gli utenti pur essendo l'offerta più redditizia per l'azienda
 
-Fonte dei dati: [Dati pubblici di Motivate International Inc.](https://divvy-tripdata.s3.amazonaws.com/index.html) (Divvy Bicycle Sharing Service di Chicago) ai sensi della presente [licenza](https://www.divvybikes.com/data-license-agreement) .
-
-Descrizione dati: 
-* I dati colpiscono una fascia temporale cha va dal 2013 in poi e sono disponibili in formato `.csv` 
-* I dati contengono queste colonne: `ride_id`, `rideable_type`, `started_at`, `ended_at`, `start_station_name`, `start_station_id`, `end_station_name`, `end_station_id`, `start_lat`, `start_lng`, `end_lat`, `end_lng`, `member_casual`
-* Ogni file contiene circa 100.000+ record
+> Nessuna informazione finanziaria o informazione su cliente/utente è resa disponibile per questo case study, quindi sono state fatte molte ipotesi generali nel processo di completamento di questo progetto.
