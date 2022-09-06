@@ -30,7 +30,7 @@ A tal proposito ho cercato di rispondere ad una semplice domanda “ In che modo
 
 ## Data Sources
 
-È importante conoscere la provenienza dei nostri dati e capire la veridicità e l’affidabilità di essi, al fine di ottenere un analisi più imparziale possibile senza criticità dovuti ad un inconsistenza dei dati o ad altri problemi o BIAS legati ad essi.
+È importante conoscere la provenienza dei nostri dati e capire la veridicità e l’affidabilità di essi, al fine di ottenere un analisi più imparziale possibile senza criticità dovuti ad un inconsistenza o ad altri problemi o BIAS legati ad essi.
 
 Fonte dei dati: [Dati pubblici di Motivate International Inc.](https://divvy-tripdata.s3.amazonaws.com/index.html) (Divvy Bicycle Sharing Service di Chicago) ai sensi della presente [licenza](https://www.divvybikes.com/data-license-agreement) .
 
