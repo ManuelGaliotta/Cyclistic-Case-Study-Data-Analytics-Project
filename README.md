@@ -43,7 +43,7 @@ Descrizione dati:
 
 Gli strumenti utilizzati sono:
 <details>
-  <summary>[R (RStudio)]()</summary>
+  <summary>[R (RStudio)](https://github.com/ManuelGaliotta/Cyclistic-Case-Study-Data-Analytics-Project/blob/main/Cyclistic-Notebook.Rmd)</summary>
   
 
 1. Download e importazione dei dati in R Studio.
