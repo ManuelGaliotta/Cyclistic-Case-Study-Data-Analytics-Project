@@ -41,19 +41,22 @@ Descrizione dati:
 
 ## Data Cleaning & Visualization
 
-Strumenti utilizzati durante il progetto:
-* R (RStudio)
-* Tableau (for visualization)
+Gli strumenti utilizzati sono:
 
+* R (RStudio)
 1. Download e importazione dei dati in R Studio.
 2. Manipolazione dei dati per renderli coerenti tra di loro e quindi consolidarli in un unico data frame.
 3. Ricerca ed eliminazione di duplicati o campi nulli
 4. Per facilitare l'analisi, sono state: 
-  * Separate le date per ogni singolo viaggio, aggiungendo delle colonne (`data`,`year`,`month`,`day`,`day_of_week`)
-  * Aggiunta colonna `ride_length` per avere la durata di ogni singolo viaggio.
-  * Rimozione dei dati cha hanno una durata inferiore e uguale 0 secondi.
+* Separate le date per ogni singolo viaggio, aggiungendo delle colonne (`data`,`year`,`month`,`day`,`day_of_week`)
+* Aggiunta colonna `ride_length` per avere la durata di ogni singolo viaggio.
+* Rimozione dei dati cha hanno una durata viaggio uguale o inferiore a 0 sec (dovuti da errori di inserimento)
+* Separazione dei dati relativi ai "TEST" eseguiti per la manutenzione.
+5. Prima Analisi con calcolo degli "INDICI DI POSIZIONE"
+6. Creazione di grafici a barre, a linea, ad area ecc.
 
-5. 
+* Tableau (for visualization)
+
 ## Analisi
 
 
