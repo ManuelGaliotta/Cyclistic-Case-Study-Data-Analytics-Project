@@ -48,11 +48,11 @@ Gli strumenti utilizzati sono:
 1. Download e importazione dei dati in R Studio.
 2. Manipolazione dei dati per renderli coerenti tra di loro e quindi consolidarli in un unico data frame.
 3. Ricerca ed eliminazione di duplicati o campi nulli
-4. Per facilitare l'analisi, sono state: 
-> Separate le date per ogni singolo viaggio, aggiungendo delle colonne (`data`,`year`,`month`,`day`,`day_of_week`)
-  Aggiunta colonna `ride_length` per avere la durata di ogni singolo viaggio.
-  Rimozione dei dati cha hanno una durata viaggio uguale o inferiore a 0 sec (dovuti da errori di inserimento)
-  Separazione dei dati relativi ai "TEST" eseguiti per la manutenzione.
+4. Per facilitare l'analisi, sono state:
+  - Separate le date per ogni singolo viaggio, aggiungendo delle colonne (`data`,`year`,`month`,`day`,`day_of_week`)
+  - Aggiunta colonna `ride_length` per avere la durata di ogni singolo viaggio.
+  - Rimozione dei dati cha hanno una durata viaggio uguale o inferiore a 0 sec (dovuti da errori di inserimento)
+  - Separazione dei dati relativi ai "TEST" eseguiti per la manutenzione.
 5. Prima Analisi con calcolo degli indici di posizione
 6. Creazione di grafici a barre, a linea, ad area ecc.
   
