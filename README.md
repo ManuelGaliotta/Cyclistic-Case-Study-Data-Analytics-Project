@@ -39,20 +39,21 @@ Descrizione dati:
 * I dati contengono queste colonne: `ride_id`, `rideable_type`, `started_at`, `ended_at`, `start_station_name`, `start_station_id`, `end_station_name`, `end_station_id`, `start_lat`, `start_lng`, `end_lat`, `end_lng`, `member_casual`
 * Ogni file contiene circa 100.000+ record
 
-## Elaborazione e Pulizia
+## Data Cleaning & Visualization
 
+Strumenti utilizzati durante il progetto:
+* R (RStudio)
+* Tableau (for visualization)
 
+1. Download e importazione dei dati in R Studio.
+2. Manipolazione dei dati per renderli coerenti tra di loro e quindi consolidarli in un unico data frame.
+3. Ricerca ed eliminazione di duplicati o campi nulli
+4. Per facilitare l'analisi, sono state: 
+  * Separate le date per ogni singolo viaggio, aggiungendo delle colonne (`data`,`year`,`month`,`day`,`day_of_week`)
+  * Aggiunta colonna `ride_length` per avere la durata di ogni singolo viaggio.
+  * Rimozione dei dati cha hanno una durata inferiore e uguale 0 secondi.
 
-* Dati scaricati per la manipolazione e l'analisi tramite R.
-* Manipolazione dei dati per renderli coerenti tra di loro e quindi consolidarli in un unico data frame.
-* Verifica presenza di duplicati
-* Ricerca ed eliminazione dei rows nulli o inconsistenti 
-
-Per facilitare l'analisi, sono state: 
-* Separate le date per ogni singolo viaggio, aggiungendo delle colonne (`data`,`year`,`month`,`day`,`day_of_week`)
-* Aggiunta colonna `ride_length` per avere la durata di ogni singolo viaggio.
-* Rimoviamo dei dati cha hanno una durata inferiore e uguale 0 secondi.
-
+5. 
 ## Analisi
 
 
