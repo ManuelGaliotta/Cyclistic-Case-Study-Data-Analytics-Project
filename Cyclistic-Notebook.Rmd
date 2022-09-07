@@ -1,9 +1,682 @@
 ---
-title: 'Cyclistic: Google Data Analytics Capstone Project'
-author: "Bernard Bamidele Aghedo"
+title: 'Cyclistic: Case Study Data Analytics Project'
+author: "Manuel Galiotta"
 output:
   pdf_document:
     fig_caption: yes
   html_notebook: default
   word_document: default
 ---
+
+**# Set working directory**
+setwd("~/Desktop/Cyclistic Case Study")
+
+#importiamo le librerie che andremo ad utilizzare succesivamente.
+library(tidyverse)
+library(lubridate)
+library(knitr)
+library(skimr)
+library(janitor)
+library(readr)
+
+#importiamo le librerie che andremo ad utilizzare succesivamente.
+library(tidyverse)
+library(lubridate)
+library(knitr)
+library(skimr)
+library(janitor)
+library(readr)
+
+#importiamo i singoli file .csv che corrispondono ad un relativo mese dell'anno
+
+Apr20<- read_csv("Desktop/Case Study - Cyclistic/Dati Raw/divvy-tripdata/202004-divvy-tripdata.csv")
+May20<- read_csv("Desktop/Case Study - Cyclistic/Dati Raw/divvy-tripdata/202005-divvy-tripdata.csv")
+Jun20<- read_csv("Desktop/Case Study - Cyclistic/Dati Raw/divvy-tripdata/202006-divvy-tripdata.csv")
+Jul20<- read_csv("Desktop/Case Study - Cyclistic/Dati Raw/divvy-tripdata/202007-divvy-tripdata.csv")
+Aug20<- read_csv("Desktop/Case Study - Cyclistic/Dati Raw/divvy-tripdata/202008-divvy-tripdata.csv")
+Sep20<- read_csv("Desktop/Case Study - Cyclistic/Dati Raw/divvy-tripdata/202009-divvy-tripdata.csv")
+Oct20<- read_csv("Desktop/Case Study - Cyclistic/Dati Raw/divvy-tripdata/202010-divvy-tripdata.csv")
+Nov20<- read_csv("Desktop/Case Study - Cyclistic/Dati Raw/divvy-tripdata/202011-divvy-tripdata.csv")
+Dec20<- read_csv("Desktop/Case Study - Cyclistic/Dati Raw/divvy-tripdata/202012-divvy-tripdata.csv")
+Jan21<- read_csv("Desktop/Case Study - Cyclistic/Dati Raw/divvy-tripdata/202101-divvy-tripdata.csv")
+Feb21<- read_csv("Desktop/Case Study - Cyclistic/Dati Raw/divvy-tripdata/202102-divvy-tripdata.csv")
+Mar21<- read_csv("Desktop/Case Study - Cyclistic/Dati Raw/divvy-tripdata/202103-divvy-tripdata.csv")
+Apr21<- read_csv("Desktop/Case Study - Cyclistic/Dati Raw/divvy-tripdata/202104-divvy-tripdata.csv")
+May21<- read_csv("Desktop/Case Study - Cyclistic/Dati Raw/divvy-tripdata/202105-divvy-tripdata.csv")
+Jun21<- read_csv("Desktop/Case Study - Cyclistic/Dati Raw/divvy-tripdata/202106-divvy-tripdata.csv")
+Jul21<- read_csv("Desktop/Case Study - Cyclistic/Dati Raw/divvy-tripdata/202107-divvy-tripdata.csv")
+Aug21<- read_csv("Desktop/Case Study - Cyclistic/Dati Raw/divvy-tripdata/202108-divvy-tripdata.csv")
+Sep21<- read_csv("Desktop/Case Study - Cyclistic/Dati Raw/divvy-tripdata/202109-divvy-tripdata.csv")
+Oct21<- read_csv("Desktop/Case Study - Cyclistic/Dati Raw/divvy-tripdata/202110-divvy-tripdata.csv")
+Nov21<- read_csv("Desktop/Case Study - Cyclistic/Dati Raw/divvy-tripdata/202111-divvy-tripdata.csv")
+Dec21<- read_csv("Desktop/Case Study - Cyclistic/Dati Raw/divvy-tripdata/202112-divvy-tripdata.csv")
+Jan22<- read_csv("Desktop/Case Study - Cyclistic/Dati Raw/divvy-tripdata/202201-divvy-tripdata.csv")
+Feb22<- read_csv("Desktop/Case Study - Cyclistic/Dati Raw/divvy-tripdata/202202-divvy-tripdata.csv")
+
+#osserviamo la struttura di un singolo dataframe per capire la sua struttura e i relativi attributi
+colnames(Apr21)
+str(Apr21)
+
+#compariamo le colonne di tutti i dataframe per trovare dei punti di mismatch
+
+compare_df_cols(Apr20, May20, Jun20, Jul20, Aug20, Sep20, Oct20, Nov20,
+                Dec20, Jan21, Feb21, Mar21, Apr21, May21, Jun21, Jul21, Aug21,
+                Sep21, Oct21, Nov21, Dec21, Jan22, Feb22, return = "mismatch")
+
+-- I dataframe che vanno da Aprile 2020 ad Novembre 2020 anno alcune colonne con attributi errati, quindi provvediamo a modificarli.
+
+
+#convertiamo end_station_id e start_station_id a character
+
+Apr20 <- mutate(Apr20,end_station_id = as.character(end_station_id), 
+                start_station_id = as.character(start_station_id))
+May20 <- mutate(May20,end_station_id = as.character(end_station_id), 
+                start_station_id = as.character(start_station_id))
+Jun20 <- mutate(Jun20,end_station_id = as.character(end_station_id), 
+                start_station_id = as.character(start_station_id))
+Jul20 <- mutate(Jul20,end_station_id = as.character(end_station_id), 
+                start_station_id = as.character(start_station_id))
+Aug20 <- mutate(Aug20,end_station_id = as.character(end_station_id), 
+                start_station_id = as.character(start_station_id))
+Sep20 <- mutate(Sep20,end_station_id = as.character(end_station_id), 
+                start_station_id = as.character(start_station_id))
+Oct20 <- mutate(Oct20,end_station_id = as.character(end_station_id), 
+                start_station_id = as.character(start_station_id))
+Nov20 <- mutate(Nov20,end_station_id = as.character(end_station_id), 
+                start_station_id = as.character(start_station_id))
+
+
+#uniamo tutti i dataframe in uno solo
+all_trips <- bind_rows(Apr20, May20, Jun20, Jul20, Aug20, Sep20, Oct20, Nov20,
+                       Dec20, Jan21, Feb21, Mar21, Apr21, May21, Jun21, Jul21, Aug21,
+                       Sep21, Oct21, Nov21, Dec21, Jan22, Feb22)
+
+dim(all_trips)
+glimpse(all_trips)
+
+#cerchiamo di trovare in quali colonne sono presenti valori NA
+which(colSums(is.na(all_trips))!=0)
+
+#rimozione delle colonne inutilizzate 
+all_trips <- all_trips %>% 
+  select(-c(start_lat,end_lat,start_lng,end_lng))
+
+#rinominiamo le colonne
+all_trips <- all_trips %>% 
+  rename(trip_id=ride_id,
+         ride_type=rideable_type,
+         start_time=started_at,
+         end_time=ended_at,
+         usertype=member_casual)
+
+
+str(all_trips)
+
+#separiamo la data di ogni singolo viaggio creando delle colonne (data,year,month,day,day_of_week) per analizzare i dati con più elasticità
+all_trips$date <- as.Date(all_trips$start_time) #il formato standard è yyyy-mm-dd
+all_trips$month <- format(as.Date(all_trips$date), "%m")
+all_trips$day <- format(as.Date(all_trips$date), "%d")
+all_trips$year <- format(as.Date(all_trips$date), "%Y")
+all_trips$day_of_week <- format(as.Date(all_trips$date), "%A")
+
+#aggiungiamo colonna ride_length per avere la durata del viaggio 
+all_trips$ride_length <- difftime(all_trips$end_time,all_trips$start_time)
+
+str(all_trips)
+class(all_trips$ride_length)
+
+#convertiamo ride_lenght in valore numerico
+all_trips$ride_length <- as.numeric(as.character(all_trips$ride_length))
+is.numeric(all_trips$ride_length)
+
+summary(all_trips$ride_length)
+
+#rimoviamo i dati cha hanno una durata inferiore e uguale 0 secondi
+
+#1°METODO - salva i dati nulli in un nuovo set di dati per una visone futura
+
+trips_null <- filter(all_trips, ride_length<=0)
+View(trips_null)
+
+all_trips_v2 <- setdiff(all_trips,trips_null)
+
+#2° METODO escludiamo i viaggi nulli senza salvarli
+
+all_trips_v2 <- all_trips[!(all_trips$ride_length<=0),]
+
+# verifichaimo l'eliminazioni dei dati nulli
+all_trips_v2 %>% 
+  filter(ride_length<=0)
+
+View(all_trips_v2)
+
+#verifichiamo la presenza di duplicati in trip_id
+length(unique(all_trips_v2$trip_id)) == nrow(all_trips_v2)
+unique(duplicated(all_trips_v2$trip_id))
+
+#verifichiamo la presenza di NA
+unique(is.na(all_trips_v2))
+which(colSums(is.na(all_trips_v2))!=0)
+
+#creamo set dati relativi ai test eseguiti per la manutenzione
+trips_test <- all_trips_v2 %>% 
+    filter(all_trips_v2$start_station_name %like% "TEST" |
+           all_trips_v2$start_station_name %like% "test")
+
+all_trips_v2 <- setdiff(all_trips_v2,trips_test)          
+
+remove
+-------------------------------------------------
+
+mean(all_trips_v2$ride_length) #media durata viaggi
+median(all_trips_v2$ride_length) #median durata viaggi
+max(all_trips_v2$ride_length) #durata massima di viaggo
+min(all_trips_v2$ride_length) #minima durata di viaggio
+
+summary(all_trips_v2$ride_length)
+
+aggregate(all_trips_v2$ride_length ~ all_trips_v2$usertype, FUN = mean)
+aggregate(all_trips_v2$ride_length ~ all_trips_v2$usertype, FUN = median)
+aggregate(all_trips_v2$ride_length ~ all_trips_v2$usertype, FUN = max)
+aggregate(all_trips_v2$ride_length ~ all_trips_v2$usertype, FUN = min)
+
+# Visualizza il tempo medio di percorrenza giornaliero per i membri rispetto agli utenti occasionali
+aggregate(all_trips_v2$ride_length ~ all_trips_v2$usertype
+          + all_trips_v2$day_of_week, FUN = mean)
+# I giorni della settimana non sono ordinati
+
+# imposta i giorni della settimana in ordine
+all_trips_v2$day_of_week <- ordered(all_trips_v2$day_of_week
+                                    ,levels=c("Lunedì", "Martedì", "Mercoledì", "Giovedì", "Venerdì", "Sabato", "Domenica"))
+
+# # Eseguiamo di nuovo il tempo medio di corsa giornaliero dei membri rispetto agli utenti occasionali
+aggregate(all_trips_v2$ride_length ~ all_trips_v2$usertype
+          + all_trips_v2$day_of_week, FUN = mean)
+
+#analizza dati per utenti e giorni della settimana
+all_trips_v2 %>% 
+  group_by(day_of_week,usertype,) %>%   #raggruppa per usertype e day_of_week
+  summarize(number_of_rides = n() , average_duration = mean(ride_length)) %>% #conta numero di viaggi e media durata viaggi
+  arrange(day_of_week) #ordina per giorni della settimana 
+
+#crea visualizzazione totale viaggi distinti by day week
+all_trips_v2 %>% 
+  group_by(day_of_week,usertype) %>% #raggruppa per giorni della settimana
+  summarise(number_of_rides = n()) %>% 
+  arrange(day_of_week) %>% 
+  ggplot(aes(x=day_of_week, y=number_of_rides, fill= usertype)) +
+  geom_col(position = "dodge") +
+  labs(title = "Total Number of Daily Trips",
+       x = "WeekDay", y = "Number of Rides", fill = "Membership") +
+  theme(axis.text.x = element_text(angle = 60, hjust = 1))
+
+
+#crea visualizzazione media viaggi by day week
+all_trips_v2 %>% 
+  group_by(day_of_week,usertype) %>% #raggruppa per giorni della settimana
+  summarise(average_duration = mean(ride_length)) %>% 
+  arrange(day_of_week) %>% 
+  ggplot(aes(x=day_of_week, y=average_duration, fill= usertype)) +
+  geom_col(position = "dodge") +
+  labs(title = "Average Duration Trip by Day"
+       ,x = "Weekday", y = "Average Duration", fill = "Membership") +
+  theme(axis.text.x = element_text(angle = 60, hjust = 1))
+
+#crea visualizzazione densità duratà viaggi 
+all_trips_v2 %>% 
+  filter(ride_length<3600) %>%
+  ggplot( aes(x = ride_length , fill = usertype, alpha=20 )) +
+  geom_density() +
+  labs(title = "Density of  Ride Times for UserType"  , x = "Ride Time  (length)" , y = "Density" , fill = "User Type")
+
+
+# crea visualizzazione totale viaggi by month
+all_trips_v2 %>% 
+  filter(year==2021) %>% 
+  group_by(month,usertype) %>%
+  summarise(number_of_rides = n()) %>%
+ggplot(aes(x=month,y=number_of_rides, fill=usertype)) + 
+  geom_col(position="dodge") +
+labs(title = "Total Number of Ride by Month"
+       ,x = "Month", y = "Number of Ride", fill = "Usertype") 
+
+# crea visualizzazione media duarata viaggi by month
+all_trips_v2 %>% 
+  filter(year==2021) %>% 
+  group_by(month,usertype) %>%
+  summarise(average_duration = mean(ride_length)) %>%
+  ggplot(aes(x=month,y=average_duration, fill=usertype)) + 
+  geom_col(position="dodge") +
+  labs(title = "Average Duration Trips by Month"
+       ,x = "Month", y = "Average Duration Trips", fill = "Usertype")
+
+# fino a qui il codice è ok
+
+# conta il numero di righe degli utenti casual nei giorni che vanno da Lunedi-Venerdi e Sabato-Domenica
+rides_casual_weekday <- nrow(filter(all_trips_v2, usertype =="casual" & 
+                                       !(day_of_week=="Sabato" | day_of_week=="Domenica")))
+rides_casual_weekend <- nrow(filter(all_trips_v2, usertype == "casual" &
+                                      (day_of_week == "Sabato" | day_of_week == "Domenica")))
+
+#divide la singola variabile con il numero totale delle due variabili (Lunedi-Venerdi e Sabato-Domenica)
+rides_casual_weekday <- (rides_casual_weekday/(rides_casual_weekday+rides_casual_weekend))
+rides_casual_weekend <- (rides_casual_weekend/(rides_casual_weekday+rides_casual_weekend))
+
+#crea un vettore con le due variabili
+total_casual_rides <- c(rides_casual_weekday,rides_casual_weekend)
+
+#crea un vettore con l'intervallo dei giorni
+weekly <- c("Lunedi-Venerdi","Sabato-Domenica")
+
+#calcola la percentuale
+percentage <- paste((round(100*total_casual_rides/(sum(total_casual_rides)), digits = 1)),"%","")
+
+
+#grafico percentuale viaggi utenti "Casual" nei giorni lavorativi e nel week-end
+ggplot(mapping=aes(x=weekly, y=percentage, fill=weekly)) + geom_col() + coord_trans() +
+  labs(title = "Percentage of trips by Casual Users", 
+       subtitle = "Percentage of trips by casual users on working days and weekends",
+       x= "Days Week", y= "Travel Percentage", fill="Days Range")
+
+
+#Numero di viaggi degli utenti durante il giorno
+all_trips_v2 %>%
+  mutate(start_hour = hour(all_trips_v2$start_time)) %>% 
+  group_by(start_hour,usertype) %>% 
+  summarise(number_of_rides = n()) %>% 
+  ggplot(aes(x=start_hour, y=number_of_rides, color=usertype)) + geom_line() +
+  labs(title = "Total Number of Ride by Hour", 
+       subtitle = "Number of users trips during the day",
+       x= "Hour", y= "Number of trips", color="Usertype")
+
+#media durata viaggi degli utenti durante il giorno
+all_trips_v2 %>%
+  mutate(start_hour = hour(all_trips_v2$start_time)) %>% 
+  group_by(start_hour,usertype) %>% 
+  summarise(average_duration = mean(ride_length)) %>% 
+  ggplot(aes(x=start_hour, y=average_duration, color= usertype)) + geom_line() +
+  labs(title = "Average Trips Time by Hour", 
+       subtitle = "Average duration of trips per hour of users",
+       x= "Hour", y= "Average Trips Time", color="Usertype")
+
+
+#Numero di viaggi degli utenti con le diverse bici 
+all_trips_v2 %>%
+  group_by(ride_type,usertype) %>% 
+  summarise(number_of_rides = n()) %>% 
+  ggplot(aes(x=ride_type, y=number_of_rides, fill=usertype)) + geom_col(position = "dodge") +
+  labs(title = "Total Number of Ride by Ride Type", 
+       subtitle = "Total number of trips with different bicycles",
+       x= "Ride Type", y= "Number of Ride", fill="Usertype")
+
+
+# visualizza le 10 stazioni in cui sono partiti il maggior numero di viaggi
+all_trips_v2 %>% 
+  group_by(start_station_name) %>%
+  summarise(number_of_rides = n()) %>%
+  filter(start_station_name != "") %>% 
+  arrange(-number_of_rides) %>%
+  head(n=10) %>% 
+  ggplot(aes(x=start_station_name,y=number_of_rides, fill=number_of_rides)) + 
+  geom_col() +
+  labs(title = "Top 10 start stations", 
+       subtitle = "The top 10 stations where the most trips started",
+       x= "Start Station", y= "Number of Ride", fill="Station Name") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1), legend.position = "NULL")
+  
+# visualizza le 10 stazioni in cui sono partiti il maggior numero di viaggi
+all_trips_v2 %>% 
+  group_by(end_station_name) %>%
+  summarise(number_of_rides = n()) %>%
+  filter(end_station_name != "") %>% 
+  arrange(-number_of_rides) %>%
+  head(n=10) %>% 
+  ggplot(aes(x=end_station_name,y=number_of_rides, fill=number_of_rides)) + 
+  geom_col() +
+  labs(title = "Top 10 end stations", 
+       subtitle = "The top 10 stations where the most trips ended",
+       x= "End Station", y= "Number of Ride", fill="Station Name") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1), legend.position = "NULL")
+
+
+plot_mon_thu <- ggmap(chicago_map, darken = c(0.4, "black")) +
+    geom_point(data = pos_join,
+               aes(x = start_lng, y = start_lat, size = casual_rides),
+               color = casual_color,
+               alpha = .6) +
+    labs(caption = paste0("\n", captions)) +
+    scale_size_continuous(range = c(2,8)) +
+    theme_map() +
+    guides(size = "none") +
+    theme(plot.caption = element_text(hjust = 1.6, size = 10), )
+-------------------------------------------------------------
+
+write.csv(all_trips_v2, "data.csv")
+
+
+
+Apr20<- read_csv("Desktop/Case Study - Cyclistic/Dati Raw/divvy-tripdata/202004-divvy-tripdata.csv")
+May20<- read_csv("Desktop/Case Study - Cyclistic/Dati Raw/divvy-tripdata/202005-divvy-tripdata.csv")
+Jun20<- read_csv("Desktop/Case Study - Cyclistic/Dati Raw/divvy-tripdata/202006-divvy-tripdata.csv")
+Jul20<- read_csv("Desktop/Case Study - Cyclistic/Dati Raw/divvy-tripdata/202007-divvy-tripdata.csv")
+Aug20<- read_csv("Desktop/Case Study - Cyclistic/Dati Raw/divvy-tripdata/202008-divvy-tripdata.csv")
+Sep20<- read_csv("Desktop/Case Study - Cyclistic/Dati Raw/divvy-tripdata/202009-divvy-tripdata.csv")
+Oct20<- read_csv("Desktop/Case Study - Cyclistic/Dati Raw/divvy-tripdata/202010-divvy-tripdata.csv")
+Nov20<- read_csv("Desktop/Case Study - Cyclistic/Dati Raw/divvy-tripdata/202011-divvy-tripdata.csv")
+Dec20<- read_csv("Desktop/Case Study - Cyclistic/Dati Raw/divvy-tripdata/202012-divvy-tripdata.csv")
+Jan21<- read_csv("Desktop/Case Study - Cyclistic/Dati Raw/divvy-tripdata/202101-divvy-tripdata.csv")
+Feb21<- read_csv("Desktop/Case Study - Cyclistic/Dati Raw/divvy-tripdata/202102-divvy-tripdata.csv")
+Mar21<- read_csv("Desktop/Case Study - Cyclistic/Dati Raw/divvy-tripdata/202103-divvy-tripdata.csv")
+Apr21<- read_csv("Desktop/Case Study - Cyclistic/Dati Raw/divvy-tripdata/202104-divvy-tripdata.csv")
+May21<- read_csv("Desktop/Case Study - Cyclistic/Dati Raw/divvy-tripdata/202105-divvy-tripdata.csv")
+Jun21<- read_csv("Desktop/Case Study - Cyclistic/Dati Raw/divvy-tripdata/202106-divvy-tripdata.csv")
+Jul21<- read_csv("Desktop/Case Study - Cyclistic/Dati Raw/divvy-tripdata/202107-divvy-tripdata.csv")
+Aug21<- read_csv("Desktop/Case Study - Cyclistic/Dati Raw/divvy-tripdata/202108-divvy-tripdata.csv")
+Sep21<- read_csv("Desktop/Case Study - Cyclistic/Dati Raw/divvy-tripdata/202109-divvy-tripdata.csv")
+Oct21<- read_csv("Desktop/Case Study - Cyclistic/Dati Raw/divvy-tripdata/202110-divvy-tripdata.csv")
+Nov21<- read_csv("Desktop/Case Study - Cyclistic/Dati Raw/divvy-tripdata/202111-divvy-tripdata.csv")
+Dec21<- read_csv("Desktop/Case Study - Cyclistic/Dati Raw/divvy-tripdata/202112-divvy-tripdata.csv")
+Jan22<- read_csv("Desktop/Case Study - Cyclistic/Dati Raw/divvy-tripdata/202201-divvy-tripdata.csv")
+Feb22<- read_csv("Desktop/Case Study - Cyclistic/Dati Raw/divvy-tripdata/202202-divvy-tripdata.csv")
+
+#osserviamo la struttura di un singolo dataframe per capire la sua struttura e i relativi attributi
+colnames(Apr21)
+str(Apr21)
+
+#compariamo le colonne di tutti i dataframe per trovare dei punti di mismatch
+
+compare_df_cols(Apr20, May20, Jun20, Jul20, Aug20, Sep20, Oct20, Nov20,
+                Dec20, Jan21, Feb21, Mar21, Apr21, May21, Jun21, Jul21, Aug21,
+                Sep21, Oct21, Nov21, Dec21, Jan22, Feb22, return = "mismatch")
+
+-- I dataframe che vanno da Aprile 2020 ad Novembre 2020 anno alcune colonne con attributi errati, quindi provvediamo a modificarli.
+
+
+#convertiamo end_station_id e start_station_id a character
+
+Apr20 <- mutate(Apr20,end_station_id = as.character(end_station_id), 
+                start_station_id = as.character(start_station_id))
+May20 <- mutate(May20,end_station_id = as.character(end_station_id), 
+                start_station_id = as.character(start_station_id))
+Jun20 <- mutate(Jun20,end_station_id = as.character(end_station_id), 
+                start_station_id = as.character(start_station_id))
+Jul20 <- mutate(Jul20,end_station_id = as.character(end_station_id), 
+                start_station_id = as.character(start_station_id))
+Aug20 <- mutate(Aug20,end_station_id = as.character(end_station_id), 
+                start_station_id = as.character(start_station_id))
+Sep20 <- mutate(Sep20,end_station_id = as.character(end_station_id), 
+                start_station_id = as.character(start_station_id))
+Oct20 <- mutate(Oct20,end_station_id = as.character(end_station_id), 
+                start_station_id = as.character(start_station_id))
+Nov20 <- mutate(Nov20,end_station_id = as.character(end_station_id), 
+                start_station_id = as.character(start_station_id))
+
+
+#uniamo tutti i dataframe in uno solo
+all_trips <- bind_rows(Apr20, May20, Jun20, Jul20, Aug20, Sep20, Oct20, Nov20,
+                       Dec20, Jan21, Feb21, Mar21, Apr21, May21, Jun21, Jul21, Aug21,
+                       Sep21, Oct21, Nov21, Dec21, Jan22, Feb22)
+
+dim(all_trips)
+glimpse(all_trips)
+
+#cerchiamo di trovare in quali colonne sono presenti valori NA
+which(colSums(is.na(all_trips))!=0)
+
+#rimozione delle colonne inutilizzate 
+all_trips <- all_trips %>% 
+  select(-c(start_lat,end_lat,start_lng,end_lng))
+
+#rinominiamo le colonne
+all_trips <- all_trips %>% 
+  rename(trip_id=ride_id,
+         ride_type=rideable_type,
+         start_time=started_at,
+         end_time=ended_at,
+         usertype=member_casual)
+
+
+str(all_trips)
+
+#separiamo la data di ogni singolo viaggio creando delle colonne (data,year,month,day,day_of_week) per analizzare i dati con più elasticità
+all_trips$date <- as.Date(all_trips$start_time) #il formato standard è yyyy-mm-dd
+all_trips$month <- format(as.Date(all_trips$date), "%m")
+all_trips$day <- format(as.Date(all_trips$date), "%d")
+all_trips$year <- format(as.Date(all_trips$date), "%Y")
+all_trips$day_of_week <- format(as.Date(all_trips$date), "%A")
+
+#aggiungiamo colonna ride_length per avere la durata del viaggio 
+all_trips$ride_length <- difftime(all_trips$end_time,all_trips$start_time)
+
+str(all_trips)
+class(all_trips$ride_length)
+
+#convertiamo ride_lenght in valore numerico
+all_trips$ride_length <- as.numeric(as.character(all_trips$ride_length))
+is.numeric(all_trips$ride_length)
+
+summary(all_trips$ride_length)
+
+#rimoviamo i dati cha hanno una durata inferiore e uguale 0 secondi
+
+#1°METODO - salva i dati nulli in un nuovo set di dati per una visone futura
+
+trips_null <- filter(all_trips, ride_length<=0)
+View(trips_null)
+
+all_trips_v2 <- setdiff(all_trips,trips_null)
+
+#2° METODO escludiamo i viaggi nulli senza salvarli
+
+all_trips_v2 <- all_trips[!(all_trips$ride_length<=0),]
+
+# verifichaimo l'eliminazioni dei dati nulli
+all_trips_v2 %>% 
+  filter(ride_length<=0)
+
+View(all_trips_v2)
+
+#verifichiamo la presenza di duplicati in trip_id
+length(unique(all_trips_v2$trip_id)) == nrow(all_trips_v2)
+unique(duplicated(all_trips_v2$trip_id))
+
+#verifichiamo la presenza di NA
+unique(is.na(all_trips_v2))
+which(colSums(is.na(all_trips_v2))!=0)
+
+#creamo set dati relativi ai test eseguiti per la manutenzione
+trips_test <- all_trips_v2 %>% 
+    filter(all_trips_v2$start_station_name %like% "TEST" |
+           all_trips_v2$start_station_name %like% "test")
+
+all_trips_v2 <- setdiff(all_trips_v2,trips_test)          
+
+remove
+-------------------------------------------------
+
+mean(all_trips_v2$ride_length) #media durata viaggi
+median(all_trips_v2$ride_length) #median durata viaggi
+max(all_trips_v2$ride_length) #durata massima di viaggo
+min(all_trips_v2$ride_length) #minima durata di viaggio
+
+summary(all_trips_v2$ride_length)
+
+aggregate(all_trips_v2$ride_length ~ all_trips_v2$usertype, FUN = mean)
+aggregate(all_trips_v2$ride_length ~ all_trips_v2$usertype, FUN = median)
+aggregate(all_trips_v2$ride_length ~ all_trips_v2$usertype, FUN = max)
+aggregate(all_trips_v2$ride_length ~ all_trips_v2$usertype, FUN = min)
+
+# Visualizza il tempo medio di percorrenza giornaliero per i membri rispetto agli utenti occasionali
+aggregate(all_trips_v2$ride_length ~ all_trips_v2$usertype
+          + all_trips_v2$day_of_week, FUN = mean)
+# I giorni della settimana non sono ordinati
+
+# imposta i giorni della settimana in ordine
+all_trips_v2$day_of_week <- ordered(all_trips_v2$day_of_week
+                                    ,levels=c("Lunedì", "Martedì", "Mercoledì", "Giovedì", "Venerdì", "Sabato", "Domenica"))
+
+# # Eseguiamo di nuovo il tempo medio di corsa giornaliero dei membri rispetto agli utenti occasionali
+aggregate(all_trips_v2$ride_length ~ all_trips_v2$usertype
+          + all_trips_v2$day_of_week, FUN = mean)
+
+#analizza dati per utenti e giorni della settimana
+all_trips_v2 %>% 
+  group_by(day_of_week,usertype,) %>%   #raggruppa per usertype e day_of_week
+  summarize(number_of_rides = n() , average_duration = mean(ride_length)) %>% #conta numero di viaggi e media durata viaggi
+  arrange(day_of_week) #ordina per giorni della settimana 
+
+#crea visualizzazione totale viaggi distinti by day week
+all_trips_v2 %>% 
+  group_by(day_of_week,usertype) %>% #raggruppa per giorni della settimana
+  summarise(number_of_rides = n()) %>% 
+  arrange(day_of_week) %>% 
+  ggplot(aes(x=day_of_week, y=number_of_rides, fill= usertype)) +
+  geom_col(position = "dodge") +
+  labs(title = "Total Number of Daily Trips",
+       x = "WeekDay", y = "Number of Rides", fill = "Membership") +
+  theme(axis.text.x = element_text(angle = 60, hjust = 1))
+
+
+#crea visualizzazione media viaggi by day week
+all_trips_v2 %>% 
+  group_by(day_of_week,usertype) %>% #raggruppa per giorni della settimana
+  summarise(average_duration = mean(ride_length)) %>% 
+  arrange(day_of_week) %>% 
+  ggplot(aes(x=day_of_week, y=average_duration, fill= usertype)) +
+  geom_col(position = "dodge") +
+  labs(title = "Average Duration Trip by Day"
+       ,x = "Weekday", y = "Average Duration", fill = "Membership") +
+  theme(axis.text.x = element_text(angle = 60, hjust = 1))
+
+#crea visualizzazione densità duratà viaggi 
+all_trips_v2 %>% 
+  filter(ride_length<3600) %>%
+  ggplot( aes(x = ride_length , fill = usertype, alpha=20 )) +
+  geom_density() +
+  labs(title = "Density of  Ride Times for UserType"  , x = "Ride Time  (length)" , y = "Density" , fill = "User Type")
+
+
+# crea visualizzazione totale viaggi by month
+all_trips_v2 %>% 
+  filter(year==2021) %>% 
+  group_by(month,usertype) %>%
+  summarise(number_of_rides = n()) %>%
+ggplot(aes(x=month,y=number_of_rides, fill=usertype)) + 
+  geom_col(position="dodge") +
+labs(title = "Total Number of Ride by Month"
+       ,x = "Month", y = "Number of Ride", fill = "Usertype") 
+
+# crea visualizzazione media duarata viaggi by month
+all_trips_v2 %>% 
+  filter(year==2021) %>% 
+  group_by(month,usertype) %>%
+  summarise(average_duration = mean(ride_length)) %>%
+  ggplot(aes(x=month,y=average_duration, fill=usertype)) + 
+  geom_col(position="dodge") +
+  labs(title = "Average Duration Trips by Month"
+       ,x = "Month", y = "Average Duration Trips", fill = "Usertype")
+
+# fino a qui il codice è ok
+
+# conta il numero di righe degli utenti casual nei giorni che vanno da Lunedi-Venerdi e Sabato-Domenica
+rides_casual_weekday <- nrow(filter(all_trips_v2, usertype =="casual" & 
+                                       !(day_of_week=="Sabato" | day_of_week=="Domenica")))
+rides_casual_weekend <- nrow(filter(all_trips_v2, usertype == "casual" &
+                                      (day_of_week == "Sabato" | day_of_week == "Domenica")))
+
+#divide la singola variabile con il numero totale delle due variabili (Lunedi-Venerdi e Sabato-Domenica)
+rides_casual_weekday <- (rides_casual_weekday/(rides_casual_weekday+rides_casual_weekend))
+rides_casual_weekend <- (rides_casual_weekend/(rides_casual_weekday+rides_casual_weekend))
+
+#crea un vettore con le due variabili
+total_casual_rides <- c(rides_casual_weekday,rides_casual_weekend)
+
+#crea un vettore con l'intervallo dei giorni
+weekly <- c("Lunedi-Venerdi","Sabato-Domenica")
+
+#calcola la percentuale
+percentage <- paste((round(100*total_casual_rides/(sum(total_casual_rides)), digits = 1)),"%","")
+
+
+#grafico percentuale viaggi utenti "Casual" nei giorni lavorativi e nel week-end
+ggplot(mapping=aes(x=weekly, y=percentage, fill=weekly)) + geom_col() + coord_trans() +
+  labs(title = "Percentage of trips by Casual Users", 
+       subtitle = "Percentage of trips by casual users on working days and weekends",
+       x= "Days Week", y= "Travel Percentage", fill="Days Range")
+
+
+#Numero di viaggi degli utenti durante il giorno
+all_trips_v2 %>%
+  mutate(start_hour = hour(all_trips_v2$start_time)) %>% 
+  group_by(start_hour,usertype) %>% 
+  summarise(number_of_rides = n()) %>% 
+  ggplot(aes(x=start_hour, y=number_of_rides, color=usertype)) + geom_line() +
+  labs(title = "Total Number of Ride by Hour", 
+       subtitle = "Number of users trips during the day",
+       x= "Hour", y= "Number of trips", color="Usertype")
+
+#media durata viaggi degli utenti durante il giorno
+all_trips_v2 %>%
+  mutate(start_hour = hour(all_trips_v2$start_time)) %>% 
+  group_by(start_hour,usertype) %>% 
+  summarise(average_duration = mean(ride_length)) %>% 
+  ggplot(aes(x=start_hour, y=average_duration, color= usertype)) + geom_line() +
+  labs(title = "Average Trips Time by Hour", 
+       subtitle = "Average duration of trips per hour of users",
+       x= "Hour", y= "Average Trips Time", color="Usertype")
+
+
+#Numero di viaggi degli utenti con le diverse bici 
+all_trips_v2 %>%
+  group_by(ride_type,usertype) %>% 
+  summarise(number_of_rides = n()) %>% 
+  ggplot(aes(x=ride_type, y=number_of_rides, fill=usertype)) + geom_col(position = "dodge") +
+  labs(title = "Total Number of Ride by Ride Type", 
+       subtitle = "Total number of trips with different bicycles",
+       x= "Ride Type", y= "Number of Ride", fill="Usertype")
+
+
+# visualizza le 10 stazioni in cui sono partiti il maggior numero di viaggi
+all_trips_v2 %>% 
+  group_by(start_station_name) %>%
+  summarise(number_of_rides = n()) %>%
+  filter(start_station_name != "") %>% 
+  arrange(-number_of_rides) %>%
+  head(n=10) %>% 
+  ggplot(aes(x=start_station_name,y=number_of_rides, fill=number_of_rides)) + 
+  geom_col() +
+  labs(title = "Top 10 start stations", 
+       subtitle = "The top 10 stations where the most trips started",
+       x= "Start Station", y= "Number of Ride", fill="Station Name") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1), legend.position = "NULL")
+  
+# visualizza le 10 stazioni in cui sono partiti il maggior numero di viaggi
+all_trips_v2 %>% 
+  group_by(end_station_name) %>%
+  summarise(number_of_rides = n()) %>%
+  filter(end_station_name != "") %>% 
+  arrange(-number_of_rides) %>%
+  head(n=10) %>% 
+  ggplot(aes(x=end_station_name,y=number_of_rides, fill=number_of_rides)) + 
+  geom_col() +
+  labs(title = "Top 10 end stations", 
+       subtitle = "The top 10 stations where the most trips ended",
+       x= "End Station", y= "Number of Ride", fill="Station Name") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1), legend.position = "NULL")
+
+
+plot_mon_thu <- ggmap(chicago_map, darken = c(0.4, "black")) +
+    geom_point(data = pos_join,
+               aes(x = start_lng, y = start_lat, size = casual_rides),
+               color = casual_color,
+               alpha = .6) +
+    labs(caption = paste0("\n", captions)) +
+    scale_size_continuous(range = c(2,8)) +
+    theme_map() +
+    guides(size = "none") +
+    theme(plot.caption = element_text(hjust = 1.6, size = 10), )
+-------------------------------------------------------------
+
+write.csv(all_trips_v2, "data.csv")
+
+
