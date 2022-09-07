@@ -1,1 +1,9 @@
-
+---
+title: 'Cyclistic: Google Data Analytics Capstone Project'
+author: "Bernard Bamidele Aghedo"
+output:
+  pdf_document:
+    fig_caption: yes
+  html_notebook: default
+  word_document: default
+---
