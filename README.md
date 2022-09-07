@@ -43,7 +43,7 @@ Descrizione dati:
 
 Gli strumenti utilizzati sono:
 <details>
-  <summary>R (RStudio)</summary>
+  <summary>[R (RStudio)]()</summary>
   
 
 1. Download e importazione dei dati in R Studio.
@@ -56,10 +56,10 @@ Gli strumenti utilizzati sono:
   - Separazione dei dati relativi ai "TEST" eseguiti per la manutenzione.
 5. Prima Analisi con calcolo degli indici di posizione
 6. Creazione di grafici a barre, a linea, ad area ecc.
-  
+
 </details>
 
-* Tableau (for visualization)
+[Tableau (for visualization)]
 
 ## Analisi
 
