@@ -1,7 +1,7 @@
 ## Sommario
 1. [Introduzione](README.md#introduzione)
-2. [Business Task](README.md#task)
-3. [Data](README.md#data)
+2. [Business Task](README.md#business-task)
+3. [Data](README.md#data-sources)
 4. [Data Cleaning & Visualization](README.md#data-cleaning)
 5. [Analisi](README.md#analisi)
 6. [Conclusioni e Raccomandazioni](README.md#conclusioni)
