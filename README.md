@@ -44,7 +44,7 @@ Descrizione dati:
 Gli strumenti utilizzati sono:
 <details>
   <summary>R (RStudio)</summary>
-  
+
 1. Download e importazione dei dati in R Studio.
 2. Manipolazione dei dati per renderli coerenti tra di loro e quindi consolidarli in un unico data frame.
 3. Ricerca ed eliminazione di duplicati o campi nulli
