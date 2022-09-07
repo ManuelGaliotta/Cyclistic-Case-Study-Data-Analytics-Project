@@ -41,6 +41,17 @@ Descrizione dati:
 
 ## Elaborazione e Pulizia
 
+Strumenti utilizzati durante il progetto:
+<details>
+  <summary>R (RStudio)</summary>
+  
+  ### Heading
+  1. R
+  2. Tableau
+
+  ```
+</details>
+
 * Dati scaricati per la manipolazione e l'analisi tramite R.
 * Manipolazione dei dati per renderli coerenti tra di loro e quindi consolidarli in un unico data frame.
 * Verifica presenza di duplicati
