@@ -2,7 +2,7 @@
 1. [Introduzione](README.md#introduzione)
 2. [Business Task](README.md#task)
 3. [Data](README.md#data)
-4. [Elaborazione e Pulizia](README.md#elaborazione-e-pulizia)
+4. [Data Cleaning & Visualization](README.md#data-cleaning)
 5. [Analisi](README.md#analisi)
 6. [Conclusioni e Raccomandazioni](README.md#conclusioni)
 
@@ -41,16 +41,7 @@ Descrizione dati:
 
 ## Elaborazione e Pulizia
 
-Strumenti utilizzati durante il progetto:
-<details>
-  <summary>R (RStudio)</summary>
-  
-  ### Heading
-  1. R
-  2. Tableau
 
-  ```
-</details>
 
 * Dati scaricati per la manipolazione e l'analisi tramite R.
 * Manipolazione dei dati per renderli coerenti tra di loro e quindi consolidarli in un unico data frame.
