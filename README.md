@@ -104,8 +104,8 @@ Le visualizzazioni sono state sviluppate per osservare le tendenze diverse tra l
 * Subito dopo troviamo "Clark St & Elm St" con circa 7000 corse, che si posiziona poco sopra la media rispetto alle altre stazioni.
 
 ## Conclusioni
-Un'osservazione comune è che i __ciclisti occasionali__ utilizzano il noleggio di biciclette per scopi di svago e turismo , mentre i membri annuali lo utilizzano prevalentemente per scopi di pendolarismo .
-Dovrebbero essere ideate strategie di marketing sul campo mirate in luoghi di svago come parchi, teatri, ristoranti e caffè.
-Le campagne di sconto per i motociclisti occasionali nei giorni feriali possono motivarli a utilizzare il servizio per il pendolarismo.
-Strumenti come le notifiche push possono essere utilizzati per attirare motociclisti occasionali durante i periodi di magra della giornata.
-Una campagna per i mesi invernali, magari accompagnata da festività o Natale, può aiutare a raccogliere i numeri durante quei mesi.
+* Un'osservazione comune è che i __membri occasionali__ utilizzano maggiormente il noleggio di biciclette per scopi di __svago e turismo__ e per far ritorno alle proprie abitazioni durante gli orari notturni, mentre i __membri annuali__ utilizzano il servizio prevalentemente per scopi di pendolarismo.
+* Dovrebbero essere ideate strategie di marketing mirate in luoghi di svago come parchi, teatri, ristoranti e caffè volti a convertire gli utenti occasionali.
+* Le campagne di sconto per i membri occasionali nei giorni feriali possono motivarli a utilizzare il servizio per il pendolarismo.
+* Strumenti come le notifiche push possono essere utilizzati per attirare membri occasionali durante i periodi di poca affluenza del servizio nella giornata.
+* Una campagna per i mesi invernali, magari accompagnata da festività o Natale, può aiutare a raccogliere i numeri durante quei mesi.
