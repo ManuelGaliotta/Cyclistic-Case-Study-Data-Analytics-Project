@@ -62,10 +62,23 @@ Le visualizzazioni sono state sviluppate per osservare le tendenze diverse tra l
 ![chart-2](https://github.com/ManuelGaliotta/Cyclistic-Case-Study-Data-Analytics-Project/blob/main/Chart/Chart-2.png)
 #### **Insights**
 * I membri casual utilizzano maggiormente il servizio nel week-end.
-* I menbri abbonati utilizzano il servizio  con una media costante durante tutta la settimana.
+* I menbri abbonati utilizzano il servizio con una media costante durante tutta la settimana.
 * I membri abbonati costituiscono la maggior parte del business aziendale e massimizzare questo numero dovrebbe essere l'obiettivo a lungo termine.
 
-### Density of ride times for User
+### Density of ride times for User 
 ![chart-3](https://github.com/ManuelGaliotta/Cyclistic-Case-Study-Data-Analytics-Project/blob/main/Chart/Chart-3.png)
+![chart-4](https://github.com/ManuelGaliotta/Cyclistic-Case-Study-Data-Analytics-Project/blob/main/Chart/Chart-4.png)
+#### **Insights**
+* I menbri abbonati utilizzano maggiormente il servizio con una durata del viaggio inferiore ai 15 minuti, prediligendo quindi tratte brevi.
+* I membri casual utilizzano il servizio con tratte più lunghe ed una durata del viaggio prolungata ma una densità molto minore.
+
+### Total number of ride by Month
+![chart-5](https://github.com/ManuelGaliotta/Cyclistic-Case-Study-Data-Analytics-Project/blob/main/Chart/Chart-5.png)
+![chart-7](https://github.com/ManuelGaliotta/Cyclistic-Case-Study-Data-Analytics-Project/blob/main/Chart/Chart-7.png)
+#### **Insights**
+* Il servizio viene usato maggiormente nel periodo estivo dell'anno, cioè nei mesi più caldi.
+* La stagionalità del servizio nell'arco dell'anno è pressoché identica ad eccezione degli ultimi 3 mesi.
+* I membri abbonati utilizzano il servizio negli ultimi 3 mesi dell'anno in modo estremamente maggiore rispetto ai membri casual.
+* La durata del viaggio però rimane sempre di lunga durata per i membri casual e di breve durata per gli abbonati.
 
 ## Conclusioni
