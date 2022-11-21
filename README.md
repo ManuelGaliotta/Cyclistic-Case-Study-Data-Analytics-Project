@@ -56,8 +56,14 @@ RStudio - [R Documentation](https://github.com/ManuelGaliotta/Cyclistic-Case-Stu
 
 ## Analisi
 È stato analizzato il set di dati finale contenente i dati di viaggio di circa 3,4 milioni di corse. 
-Le visualizzazioni sono state sviluppate con Google Data Studio per osservare le tendenze diverse tra l'utilizzo da parte dei ciclisti occasionali e dei soci annuali.  
-![piechart](viz/pie_chart.PNG)
+Le visualizzazioni sono state sviluppate per osservare le tendenze diverse tra l'utilizzo da parte dei ciclisti occasionali e dei soci annuali.  
+
+### Total ride share
+//
+#### **Insights**
+* 58.6% of total rides (3.4M) were taken by annual members.
+* 41.4% of total rides were taken by casual riders.
+* Annual members form the majority of business for the company and maximizing on this number should be the focus in the long run.
 
 
 ## Conclusioni
