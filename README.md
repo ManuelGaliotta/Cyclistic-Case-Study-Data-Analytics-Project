@@ -62,9 +62,10 @@ Le visualizzazioni sono state sviluppate per osservare le tendenze diverse tra l
 ![chart-2](https://github.com/ManuelGaliotta/Cyclistic-Case-Study-Data-Analytics-Project/blob/main/Chart/Chart-2.png)
 #### **Insights**
 * I membri casual utilizzano maggiormente il servizio nel week-end.
-* I menbri abbonati utilizzano il servizio con andamento costante durante tutta la settimana.
+* I menbri abbonati utilizzano il servizio  con una media costante durante tutta la settimana.
 * I membri abbonati costituiscono la maggior parte del business aziendale e massimizzare questo numero dovrebbe essere l'obiettivo a lungo termine.
 
-
+### Density of ride times for User
+![chart-3](https://github.com/ManuelGaliotta/Cyclistic-Case-Study-Data-Analytics-Project/blob/main/Chart/Chart-3.png)
 
 ## Conclusioni
