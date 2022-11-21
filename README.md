@@ -90,4 +90,17 @@ Le visualizzazioni sono state sviluppate per osservare le tendenze diverse tra l
 * I membri abbonati continuano ad avere un durata del viaggio media sotto i 1000 secondi per viaggio.
 * I membri casual effettuano viaggi di lunga percorrenza anche in orari notturni, presumibilmente per far ritorno a casa.
 
+### Total number of ride by Ride type
+![chart-10](https://github.com/ManuelGaliotta/Cyclistic-Case-Study-Data-Analytics-Project/blob/main/Chart/Chart-10.png)
+#### **Insights**
+* I membri abbonati utilizzano tutte le tipologie di bici senza particolari evidenze.
+* I membri casual prediliggono utilizzo delle "classic bike".
+
+### Top 10 Station
+![chart-11](https://github.com/ManuelGaliotta/Cyclistic-Case-Study-Data-Analytics-Project/blob/main/Chart/Chart-11.png)
+![chart-1](https://github.com/ManuelGaliotta/Cyclistic-Case-Study-Data-Analytics-Project/blob/main/Chart/Chart-1.png)
+#### **Insights**
+* La stazione "Streeter Dr & Grand Ave" è quella maggiormente utilizzata per far partire e terminare le corse con quasi 12000 corse.
+* Subito dopo troviamo "Clark St & Elm St" con circa 7000 corse, che si posiziona poco sopra la media rispetto alle altre stazioni.
+
 ## Conclusioni
