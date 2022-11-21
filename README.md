@@ -41,7 +41,6 @@ Descrizione dati:
 
 ## Data Cleaning
 
-I Tools utilizzati sono:
 RStudio - [R Documentation](https://github.com/ManuelGaliotta/Cyclistic-Case-Study-Data-Analytics-Project/blob/main/Cyclistic-Notebook.Rmd)
 1. Download e importazione dei dati in R Studio.
 2. Manipolazione dei dati per renderli coerenti tra di loro e quindi consolidarli in un unico data frame.
@@ -54,7 +53,6 @@ RStudio - [R Documentation](https://github.com/ManuelGaliotta/Cyclistic-Case-Stu
 5. Analisi con calcolo degli indici di posizione
 6. Creazione di grafici a barre, a linea, ad area ecc.
 
-Tableau (for visualization)
 
 ## Analisi
 
