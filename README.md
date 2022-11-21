@@ -39,7 +39,7 @@ Descrizione dati:
 * I dati contengono queste colonne: `ride_id`, `rideable_type`, `started_at`, `ended_at`, `start_station_name`, `start_station_id`, `end_station_name`, `end_station_id`, `start_lat`, `start_lng`, `end_lat`, `end_lng`, `member_casual`
 * Ogni file contiene circa 100.000+ record
 
-## Data Cleaning & Visualization
+## Data Cleaning
 
 I Tools utilizzati sono:
 RStudio - [R Documentation](https://github.com/ManuelGaliotta/Cyclistic-Case-Study-Data-Analytics-Project/blob/main/Cyclistic-Notebook.Rmd)
