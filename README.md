@@ -55,6 +55,9 @@ RStudio - [R Documentation](https://github.com/ManuelGaliotta/Cyclistic-Case-Stu
 
 
 ## Analisi
+È stato analizzato il set di dati finale contenente i dati di viaggio di circa 3,4 milioni di corse. 
+Le visualizzazioni sono state sviluppate con Google Data Studio per osservare le tendenze diverse tra l'utilizzo da parte dei ciclisti occasionali e dei soci annuali.  
+![piechart](viz/pie_chart.PNG)
 
 
 ## Conclusioni
