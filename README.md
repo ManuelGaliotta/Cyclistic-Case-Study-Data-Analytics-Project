@@ -79,6 +79,15 @@ Le visualizzazioni sono state sviluppate per osservare le tendenze diverse tra l
 * Il servizio viene usato maggiormente nel periodo estivo dell'anno, cioè nei mesi più caldi.
 * La stagionalità del servizio nell'arco dell'anno è pressoché identica ad eccezione degli ultimi 3 mesi.
 * I membri abbonati utilizzano il servizio negli ultimi 3 mesi dell'anno in modo estremamente maggiore rispetto ai membri casual.
-* La durata del viaggio però rimane sempre di lunga durata per i membri casual e di breve durata per gli abbonati.
+* La durata del viaggio rimane sempre di lunga durata per i membri casual e di breve durata per gli abbonati.
+
+### Total number of ride by Hour
+![chart-8](https://github.com/ManuelGaliotta/Cyclistic-Case-Study-Data-Analytics-Project/blob/main/Chart/Chart-8.png)
+![chart-9](https://github.com/ManuelGaliotta/Cyclistic-Case-Study-Data-Analytics-Project/blob/main/Chart/Chart-9.png)
+#### **Insights**
+* Il servizio viene usato maggiormente nelle ore di entrata ed uscita dal lavoro.
+* Il servizio va calando man mano che l'termina la giornata, per poi riprende la mattina seguente.
+* I membri abbonati continuano ad avere un durata del viaggio media sotto i 1000 secondi per viaggio.
+* I membri casual effettuano viaggi di lunga percorrenza anche in orari notturni, presumibilmente per far ritorno a casa.
 
 ## Conclusioni
